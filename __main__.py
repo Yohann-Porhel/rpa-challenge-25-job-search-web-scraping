@@ -47,16 +47,21 @@ def get_job_datas():
     ws['B1'] = "Company"
     ws['C1'] = "Link"
     for index, position in enumerate(positions, start=2):
-        ws['A'+str(index)] = position.text
+        ws['A' + str(index)] = position.text
     for index, company in enumerate(companies, start=2):
-        ws['B'+str(index)] = company.text
+        ws['B' + str(index)] = company.text
     for index, link in enumerate(links, start=2):
-        ws['C'+str(index)] = link.get_attribute("href")
+        ws['C' + str(index)] = link.get_attribute("href")
     wb.save("rpa_jobs.xlsx")
 
 
 if __name__ == '__main__':
-    navigate_to_website("https://www.linkedin.com/jobs/search?keywords=RPA%20Developer&location=Portugal&geoId"
-                        "=100364837&trk=public_jobs_jobs-search-bar_search-submit&position=1&pageNum=0")
-    get_job_datas()
-    close_website()
+    try:
+        navigate_to_website("https://www.linkedin.com/jobs/search?keywords=RPA%20Developer&location=Portugal&geoId"
+                            "=100364837&trk=public_jobs_jobs-search-bar_search-submit&position=1&pageNum=0")
+        get_job_datas()
+    except Exception as err:
+        print(f"Unexpected {err=}, {type(err)=}")
+        raise
+    finally:
+        close_website()

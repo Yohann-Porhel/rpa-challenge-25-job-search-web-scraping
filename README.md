@@ -1,9 +1,9 @@
 # rpa-challenge-25-job-search-web-scraping
-Job search web scraping on LinkedIn
+Web Scraping
 
 Solution to the challenge : https://community.robotict.com/t/rpa-challenge-25-job-search-web-scraping/185
 
-Langage :
+Language :
 * python version 3.9.6 : https://www.python.org/downloads/release/python-396/
 
 Libraries :

@@ -27,9 +27,7 @@ def navigate_to_website(url: str):
 
 
 def close_website():
-    """
-    Close the browser
-    """
+    """ Close the browser """
     driver.quit()
 
 

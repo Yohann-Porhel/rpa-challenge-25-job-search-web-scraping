@@ -1,4 +1,4 @@
-# -*-coding:Utf-8 -*
+#!/usr/bin/env python3
 from openpyxl import Workbook
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -44,11 +44,11 @@ def get_job_datas():
     ws['A1'] = "Position"
     ws['B1'] = "Company"
     ws['C1'] = "Link"
-    for index, position in enumerate(positions, start=2):
+    for index, position in enumerate(positions, 2):
         ws['A' + str(index)] = position.text
-    for index, company in enumerate(companies, start=2):
+    for index, company in enumerate(companies, 2):
         ws['B' + str(index)] = company.text
-    for index, link in enumerate(links, start=2):
+    for index, link in enumerate(links, 2):
         ws['C' + str(index)] = link.get_attribute("href")
     wb.save("rpa_jobs.xlsx")
 
